@@ -4,7 +4,7 @@ const crossesContainer = document.getElementById('crosses-container');
 const activePointers = new Map();
 
 function getProceduralColor(index) {
-    const hue = (index * 137.5) % 360;
+    const hue = (index * 36) % 360;
     return `hsl(${hue}, 100%, 50%)`;
 }
 

@@ -6,10 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Multitouch Tester</title>
     <link rel="stylesheet" href="style.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H46XRZPJ6K"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-H46XRZPJ6K');
+    </script>
 </head>
 
 <body>
-    <div id="center-text">Touch</div>
+    <noscript>
+        <style>
+            .js-only {
+                display: none !important;
+            }
+        </style>
+        <div
+            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 2rem; text-align: center; width: 100%; pointer-events: none;">
+            Enable JavaScript to detect touch</div>
+    </noscript>
+    <div id="center-text" class="js-only">Touch</div>
     <div id="crosses-container"></div>
     <script src="script.js"></script>
 </body>
