@@ -1,4 +1,5 @@
 const centerText = document.getElementById('center-text');
+const cookieText = document.getElementById('cookie-text');
 const crossesContainer = document.getElementById('crosses-container');
 
 const activePointers = new Map();
@@ -43,6 +44,10 @@ function createCross(id, color, x, y) {
 function handlePointerDown(e) {
     if (e.pointerType === 'mouse' && e.button !== 0) return;
 
+    if (cookieText) {
+        cookieText.style.display = 'none';
+    }
+
     if (!activePointers.has(e.pointerId)) {
         const color = getProceduralColor(colorIndex);
         colorIndex++;
@@ -80,3 +85,17 @@ document.addEventListener('pointercancel', handlePointerUp);
 document.addEventListener('contextmenu', e => e.preventDefault());
 document.addEventListener('selectstart', e => e.preventDefault());
 document.addEventListener('dragstart', e => e.preventDefault());
+
+function handleDoubleClick() {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+            console.warn(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+        });
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        }
+    }
+}
+
+document.addEventListener('dblclick', handleDoubleClick);
